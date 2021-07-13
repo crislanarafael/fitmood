@@ -5,6 +5,6 @@ Yes, you've heard it right - **we're scratching Electron off our list for now an
 Right now, I'm working with my local server to test our website features - specifically the login system. <br><br>
 To work with these files please download XAMPP: https://www.apachefriends.org/index.html
 <br>
-Once you get XAMPP downloaded if you want to preview your website running on the server make sure use localhost/htdocs/(insert project folder name here) <br><br>
+Once you get XAMPP downloaded if you want to preview your website running on the server make sure use localhost//(insert project folder name here) - for me it is localhost/fitmood <br><br>
 What I did so far was to create a dummy mysql database in the phpmyadmin panel
 
