@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>FitMood</title>
+    <link rel="stylesheet" href="welcome.css" />
+</head>
+  <body>
+    <h2>Welcome to FitMood!</h2>
+    <div class="container" id="container">
+      <!--Sign Up Container-->
+      <div class="form-container sign-up-container">
+        <form action="insert.php" method="POST">
+          <h1>Create an Account</h1>
+          <div class="social-container">
+            <a href="#" class="social1"><img src="surprised.png" /></a>
+            <a href="#" class="social2"><img src="smile.png" /></a>
+            <a href="#" class="social3"
+              ><img class="socialimg" src="silly.png"
+            /></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" name = "name" placeholder="Name" />
+          <input type="email" name = "email" placeholder="Email" />
+          <input type="password" name = "password" placeholder="Password" />
+          <input type="password" name = "password" placeholder="Confirm Password" />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+      <!--//Sign in Container-->
+      <div class="form-container sign-in-container">
+        <form action="#" method="POST">
+          <h1>Sign in</h1>
+          <div class="social-container">
+            <a href="#" class="social1"><img src="surprised.png" /></a>
+            <a href="#" class="social2"><img src="smile.png" /></a>
+            <a href="#" class="social3"
+              ><img class="socialimg" src="silly.png"
+            /></a>
+          </div>
+          <span>or use your account</span>
+          <input type="email" name = "email" placeholder="Email" required />
+          <input type="password" name = "password" placeholder="Password" required />
+          <a href="#">Forgot your password?</a>
+          <button>Sign In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>If you already have an account click here to sign in!</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Sign Up Confirmed!</h1>
+            <br>
+            <img id = "smile-img" src="smile.png">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      const signUpButton = document.getElementById("signUp");
+      const signInButton = document.getElementById("signIn");
+      const container = document.getElementById("container");
+
+      signUpButton.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+      });
+
+      signInButton.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+      });
+
+      document.getElementById("mysqlbutton").addEventListener(
+        "click",
+        () => {
+          var mysql = require("mysql");
+
+          var connection = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: null,
+            database: "testlogin",
+          });
+
+          connection.connect(() => {
+            if (err) {
+              return console.log(err.stack);
+            }
+
+            console.log("Connectiong successfully established");
+          });
+
+          connection.end(() => {
+            console.log("Connection successfully closed");
+          });
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
